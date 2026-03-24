@@ -1,5 +1,6 @@
 import BannerSection from "@/components/home/BannerSection";
 import HousePlanSection from "@/components/home/HousePlanSection";
+import HousePlanSectionDark from "@/components/home/HousePlanSectionDark";
 import MapSection from "@/components/home/MapSection";
 import NearbyFacilities from "@/components/home/NearbyFacilities";
 import ProjectOverview from "@/components/home/OverviewSection";
@@ -12,7 +13,8 @@ function HomePage() {
       <ProjectOverview />
       <MapSection />
       <NearbyFacilities />
-      <HousePlanSection />
+      {/* <HousePlanSection /> */}
+      <HousePlanSectionDark />
     </main>
   );
 }
