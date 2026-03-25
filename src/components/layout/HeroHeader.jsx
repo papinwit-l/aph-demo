@@ -4,13 +4,15 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const NAV_LINKS = [
-  { label: "Residences", href: "#residences" },
-  { label: "Design", href: "#design" },
+  { label: "Overview", href: "#overview" },
   { label: "Location", href: "#location" },
+  { label: "Facilities", href: "#facilities" },
+  { label: "Residences", href: "#residences" },
   { label: "Contact", href: "#contact" },
 ];
 
 function HeroHeader() {
+  const [activeSection, setActiveSection] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showStickyNav, setShowStickyNav] = useState(false);
   const headerRef = useRef(null);
@@ -27,6 +29,30 @@ function HeroHeader() {
       observer.observe(headerRef.current);
     }
 
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const sectionIds = NAV_LINKS.map((link) => link.href.replace("#", ""));
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter(Boolean);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        // Find the entry with the highest intersection ratio
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+
+        if (visible.length > 0) {
+          setActiveSection(visible[0].target.id);
+        }
+      },
+      { threshold: [0, 0.25, 0.5, 0.75, 1], rootMargin: "-20% 0px -20% 0px" },
+    );
+
+    sections.forEach((section) => observer.observe(section));
     return () => observer.disconnect();
   }, []);
 
@@ -117,7 +143,7 @@ function HeroHeader() {
             }}
           >
             <ul className="flex flex-col gap-5">
-              {["Home", "Residences", "Gallery", "Location", "Contact"].map(
+              {/* {["Home", "Residences", "Gallery", "Location", "Contact"].map(
                 (item) => (
                   <li key={item}>
                     <a
@@ -130,7 +156,19 @@ function HeroHeader() {
                     </a>
                   </li>
                 ),
-              )}
+              )} */}
+              {NAV_LINKS.map((link) => (
+                <li key={link.label}>
+                  <Link
+                    href={link.href}
+                    style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    className={`text-[#FAFAF8] text-[11px] tracking-[0.2em] uppercase
+                                 hover:text-[#C4663A] transition-colors duration-300`}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
             <div className="mt-6 h-px w-16 bg-gradient-to-r from-[#C4663A] to-[#C9A96E]" />
           </nav>
@@ -169,8 +207,12 @@ function HeroHeader() {
                 key={link.label}
                 href={link.href}
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[11px] tracking-[0.2em] uppercase text-[#6B7280]
-                           hover:text-[#C4663A] transition-colors duration-300"
+                className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-300
+    ${
+      activeSection === link.href.replace("#", "")
+        ? "text-[#C4663A]"
+        : "text-[#6B7280] hover:text-[#C4663A]"
+    }`}
               >
                 {link.label}
               </Link>
@@ -212,8 +254,12 @@ function HeroHeader() {
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[11px] tracking-[0.2em] uppercase text-[#6B7280]
-                               hover:text-[#C4663A] transition-colors duration-300"
+                    className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-300
+    ${
+      activeSection === link.href.replace("#", "")
+        ? "text-[#C4663A]"
+        : "text-[#6B7280] hover:text-[#C4663A]"
+    }`}
                   >
                     {link.label}
                   </Link>

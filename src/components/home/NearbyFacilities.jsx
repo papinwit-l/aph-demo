@@ -84,7 +84,11 @@ function NearbyFacilities() {
   const activeData = NEARBY_DATA.find((d) => d.id === activeTab);
 
   return (
-    <section style={{ background: "#FAFAF8" }} className="relative py-16">
+    <section
+      id="facilities"
+      style={{ background: "#FAFAF8" }}
+      className="relative py-16"
+    >
       {/* Top divider */}
       <div
         className="absolute top-0 left-6 right-6 md:left-10 md:right-10 h-px"

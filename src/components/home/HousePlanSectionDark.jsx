@@ -221,7 +221,7 @@ function HousePlanSectionDark() {
       <div
         className="pointer-events-none absolute inset-0"
         style={{
-          opacity: 0.03,
+          opacity: 0.05,
           backgroundImage:
             "repeating-linear-gradient(90deg, transparent, transparent 59px, rgba(255,255,255,0.5) 59px, rgba(255,255,255,0.5) 60px), repeating-linear-gradient(0deg, transparent, transparent 59px, rgba(255,255,255,0.5) 59px, rgba(255,255,255,0.5) 60px)",
         }}

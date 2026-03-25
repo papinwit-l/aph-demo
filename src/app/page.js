@@ -1,4 +1,5 @@
 import BannerSection from "@/components/home/BannerSection";
+import ContactSection from "@/components/home/ContactSection";
 import HousePlanSection from "@/components/home/HousePlanSection";
 import HousePlanSectionDark from "@/components/home/HousePlanSectionDark";
 import MapSection from "@/components/home/MapSection";
@@ -8,14 +9,17 @@ import React from "react";
 
 function HomePage() {
   return (
-    <main>
-      <BannerSection />
-      <ProjectOverview />
-      <MapSection />
-      <NearbyFacilities />
-      {/* <HousePlanSection /> */}
-      <HousePlanSectionDark />
-    </main>
+    <>
+      <main>
+        <BannerSection />
+        <ProjectOverview />
+        <MapSection />
+        <NearbyFacilities />
+        {/* <HousePlanSection /> */}
+        <HousePlanSectionDark />
+        <ContactSection />
+      </main>
+    </>
   );
 }
 

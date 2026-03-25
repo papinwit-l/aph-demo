@@ -161,6 +161,7 @@ function ProjectOverview() {
     <section
       className="relative min-h-screen flex items-center"
       style={{ background: "#FAFAF8" }}
+      id="overview"
     >
       <div className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-20">
         {/* ─── Header ─── */}
