@@ -84,11 +84,7 @@ function NearbyFacilities() {
   const activeData = NEARBY_DATA.find((d) => d.id === activeTab);
 
   return (
-    <section
-      id="facilities"
-      style={{ background: "#FAFAF8" }}
-      className="relative py-16"
-    >
+    <section id="facilities" className="relative py-16 bg-ci-white">
       {/* Top divider */}
       <div
         className="absolute top-0 left-6 right-6 md:left-10 md:right-10 h-px"
@@ -99,26 +95,26 @@ function NearbyFacilities() {
         {/* ─── Header ─── */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A]"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent"
             >
               Nearby Facilities
             </p>
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
           </div>
 
           <h2
             style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-[#1A1A1A] mb-3"
+            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-ci-charcoal mb-3"
           >
             Nearby Facilities
           </h2>
 
           <p
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-[#6B7280] max-w-lg mx-auto text-base md:text-lg font-light italic"
+            className="text-ci-steel max-w-lg mx-auto text-base md:text-lg font-light italic"
           >
             Everything you need, just minutes away.
           </p>
@@ -135,13 +131,13 @@ function NearbyFacilities() {
                          cursor-pointer transition-all duration-300
                 ${
                   activeTab === item.id
-                    ? "bg-[#C4663A] text-[#FAFAF8]"
-                    : "text-[#6B7280] hover:text-[#1A1A1A] border border-transparent hover:border-[rgba(0,0,0,0.08)]"
+                    ? "bg-ci-accent text-ci-white"
+                    : "text-ci-steel hover:text-ci-charcoal border border-transparent hover:border-[rgba(0,0,0,0.08)]"
                 }`}
             >
               <span
                 className={`transition-colors duration-300 ${
-                  activeTab === item.id ? "text-[#FAFAF8]" : "text-[#B8B0A8]"
+                  activeTab === item.id ? "text-ci-white" : "text-ci-concrete"
                 }`}
               >
                 {React.cloneElement(item.icon, { size: 16 })}
@@ -158,20 +154,21 @@ function NearbyFacilities() {
             <div
               className="md:col-span-1 rounded-2xl p-6 flex flex-col justify-between"
               style={{
-                background: "linear-gradient(135deg, #C4663A, #B87333)",
+                background:
+                  "linear-gradient(135deg, var(--color-ci-accent), var(--color-ci-copper))",
               }}
             >
               <div>
-                <div className="text-[#FAFAF8]/60 mb-3">{activeData.icon}</div>
+                <div className="text-ci-white/60 mb-3">{activeData.icon}</div>
                 <p
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="text-[10px] tracking-[0.3em] uppercase text-[#FAFAF8]/60 mb-1"
+                  className="text-[10px] tracking-[0.3em] uppercase text-ci-white/60 mb-1"
                 >
                   {activeData.categoryEn}
                 </p>
                 <h3
                   style={{ fontFamily: "'Syne', sans-serif" }}
-                  className="text-[#FAFAF8] text-lg font-bold mb-1"
+                  className="text-ci-white text-lg font-bold mb-1"
                 >
                   {activeData.highlight.name}
                 </h3>
@@ -179,13 +176,13 @@ function NearbyFacilities() {
               <div className="mt-6">
                 <span
                   style={{ fontFamily: "'Syne', sans-serif" }}
-                  className="text-4xl font-bold text-[#FAFAF8]"
+                  className="text-4xl font-bold text-ci-white"
                 >
                   {activeData.highlight.distance}
                 </span>
                 <span
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="text-[#FAFAF8]/70 text-sm ml-1.5"
+                  className="text-ci-white/70 text-sm ml-1.5"
                 >
                   km
                 </span>
@@ -194,9 +191,8 @@ function NearbyFacilities() {
 
             {/* Places List */}
             <div
-              className="md:col-span-2 rounded-2xl overflow-hidden"
+              className="md:col-span-2 rounded-2xl overflow-hidden bg-ci-cream"
               style={{
-                background: "#F5F0EB",
                 border: "1px solid rgba(0,0,0,0.06)",
               }}
             >
@@ -218,10 +214,10 @@ function NearbyFacilities() {
                   }}
                 >
                   <div className="flex items-center gap-3">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#C4663A]/40 flex-shrink-0" />
+                    <span className="w-1.5 h-1.5 rounded-full bg-ci-accent/40 flex-shrink-0" />
                     <span
                       style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      className="text-[#1A1A1A] text-sm"
+                      className="text-ci-charcoal text-sm"
                     >
                       {place.name}
                     </span>
@@ -229,13 +225,13 @@ function NearbyFacilities() {
                   <div className="flex items-baseline gap-1 flex-shrink-0 ml-4">
                     <span
                       style={{ fontFamily: "'Syne', sans-serif" }}
-                      className="text-[#C4663A] text-sm font-semibold"
+                      className="text-ci-accent text-sm font-semibold"
                     >
                       {place.distance}
                     </span>
                     <span
                       style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      className="text-[#B8B0A8] text-[11px]"
+                      className="text-ci-concrete text-[11px]"
                     >
                       km
                     </span>

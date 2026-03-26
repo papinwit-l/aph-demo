@@ -159,38 +159,37 @@ function ProjectOverview() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center"
-      style={{ background: "#FAFAF8" }}
+      className="relative min-h-screen flex items-center bg-ci-white"
       id="overview"
     >
       <div className="relative w-full max-w-5xl mx-auto px-6 md:px-10 py-20">
         {/* ─── Header ─── */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-5">
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A]"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent"
             >
               Project Overview
             </p>
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
           </div>
 
           <h2
             style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-[#1A1A1A] mb-3"
+            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-ci-charcoal mb-3"
           >
             Smart design. Open space.
             <br />
-            <span className="text-[#B8B0A8]">Modern living.</span>
+            <span className="text-ci-concrete">Modern living.</span>
           </h2>
 
-          <div className="w-14 h-px mx-auto mb-5 bg-gradient-to-r from-transparent via-[#B87333] to-transparent" />
+          <div className="w-14 h-px mx-auto mb-5 bg-gradient-to-r from-transparent via-ci-copper to-transparent" />
 
           <p
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-[#6B7280] leading-relaxed max-w-xl mx-auto text-base md:text-lg font-light italic"
+            className="text-ci-steel leading-relaxed max-w-xl mx-auto text-base md:text-lg font-light italic"
           >
             A modern townhome featuring loft-style interiors, double-volume
             spaces, and flexible layouts — ideal for today's urban lifestyle.
@@ -202,9 +201,8 @@ function ProjectOverview() {
           {FEATURES.map((item, i) => (
             <div
               key={i}
-              className="group rounded-xl px-5 py-5 transition-all duration-300 cursor-default"
+              className="group rounded-xl px-5 py-5 bg-ci-cream transition-all duration-300 cursor-default"
               style={{
-                background: "#F5F0EB",
                 border: "1px solid rgba(0,0,0,0.06)",
               }}
               onMouseEnter={(e) => {
@@ -217,18 +215,18 @@ function ProjectOverview() {
                 e.currentTarget.style.boxShadow = "none";
               }}
             >
-              <div className="text-[#B8B0A8] group-hover:text-[#C4663A] transition-colors duration-300 mb-3">
+              <div className="text-ci-concrete group-hover:text-ci-accent transition-colors duration-300 mb-3">
                 {item.icon}
               </div>
               <h4
                 style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-[#1A1A1A] text-sm font-semibold mb-1"
+                className="text-ci-charcoal text-sm font-semibold mb-1"
               >
                 {item.title}
               </h4>
               <p
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[#6B7280] text-xs leading-relaxed"
+                className="text-ci-steel text-xs leading-relaxed"
               >
                 {item.desc}
               </p>
@@ -245,13 +243,13 @@ function ProjectOverview() {
           <div className="max-w-2xl mx-auto mb-10 space-y-4 pt-6">
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A] mb-2"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent mb-2"
             >
               Design Philosophy
             </p>
             <p
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              className="text-[#1A1A1A] text-lg italic mb-4"
+              className="text-ci-charcoal text-lg italic mb-4"
             >
               "Form follows lifestyle."
             </p>
@@ -259,7 +257,7 @@ function ProjectOverview() {
               <p
                 key={i}
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[#6B7280] text-sm leading-relaxed"
+                className="text-ci-steel text-sm leading-relaxed"
               >
                 {p}
               </p>
@@ -269,17 +267,17 @@ function ProjectOverview() {
           <div className="max-w-2xl mx-auto mb-6">
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A] mb-4"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent mb-4"
             >
               Architectural Highlights
             </p>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-3">
               {FULL_CONTENT.highlights.map((item, i) => (
                 <div key={i} className="flex items-start gap-3">
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[#C4663A]/40 flex-shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-ci-accent/40 flex-shrink-0" />
                   <span
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[#1A1A1A] text-sm leading-relaxed"
+                    className="text-ci-charcoal text-sm leading-relaxed"
                   >
                     {item}
                   </span>
@@ -296,7 +294,7 @@ function ProjectOverview() {
             style={{ fontFamily: "'DM Sans', sans-serif" }}
             className="inline-flex items-center gap-2 px-6 py-2.5
                        text-[10px] tracking-[0.2em] uppercase
-                       text-[#6B7280] hover:text-[#C4663A]
+                       text-ci-steel hover:text-ci-accent
                        transition-all duration-300 cursor-pointer"
           >
             {isExpanded ? "Show Less" : "Read More"}
@@ -317,7 +315,7 @@ function ProjectOverview() {
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </button>
-          <div className="mt-1 mx-auto w-12 h-px bg-gradient-to-r from-[#C4663A] to-[#C9A96E]" />
+          <div className="mt-1 mx-auto w-12 h-px bg-gradient-to-r from-ci-accent to-ci-gold" />
         </div>
       </div>
     </section>
