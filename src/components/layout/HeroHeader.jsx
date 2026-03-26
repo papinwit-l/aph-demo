@@ -40,7 +40,6 @@ function HeroHeader() {
 
     const observer = new IntersectionObserver(
       (entries) => {
-        // Find the entry with the highest intersection ratio
         const visible = entries
           .filter((e) => e.isIntersecting)
           .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
@@ -56,7 +55,6 @@ function HeroHeader() {
     return () => observer.disconnect();
   }, []);
 
-  // Close mobile menu when sticky nav hides
   useEffect(() => {
     if (!showStickyNav) setIsMenuOpen(false);
   }, [showStickyNav]);
@@ -85,15 +83,15 @@ function HeroHeader() {
           >
             <span
               className={`block w-6 h-[2px] transition-all duration-300 origin-center
-                ${isMenuOpen ? "rotate-45 translate-y-[7px] bg-[#FAFAF8]" : "bg-[#FAFAF8] group-hover:w-5"}`}
+                ${isMenuOpen ? "rotate-45 translate-y-[7px] bg-ci-white" : "bg-ci-white group-hover:w-5"}`}
             />
             <span
-              className={`block w-6 h-[2px] bg-[#FAFAF8] transition-all duration-300
+              className={`block w-6 h-[2px] bg-ci-white transition-all duration-300
                 ${isMenuOpen ? "opacity-0 scale-0" : "opacity-100"}`}
             />
             <span
               className={`block w-6 h-[2px] transition-all duration-300 origin-center
-                ${isMenuOpen ? "-rotate-45 -translate-y-[7px] bg-[#FAFAF8]" : "bg-[#FAFAF8] group-hover:w-4"}`}
+                ${isMenuOpen ? "-rotate-45 -translate-y-[7px] bg-ci-white" : "bg-ci-white group-hover:w-4"}`}
             />
           </button>
 
@@ -101,9 +99,9 @@ function HeroHeader() {
           <div className="absolute left-1/2 -translate-x-1/2">
             <span
               style={{ fontFamily: "'Syne', sans-serif" }}
-              className="text-xl font-extrabold tracking-tight text-[#FAFAF8]"
+              className="text-xl font-extrabold tracking-tight text-ci-white"
             >
-              LOFT<span className="text-[#C4663A]">HAUS</span>
+              LOFT<span className="text-ci-accent">HAUS</span>
             </span>
           </div>
 
@@ -111,7 +109,7 @@ function HeroHeader() {
           <button
             aria-label="Search"
             className="flex items-center justify-center w-10 h-10 cursor-pointer
-                       text-[#FAFAF8] hover:text-[#B87333] transition-colors duration-300"
+                       text-ci-white hover:text-ci-copper transition-colors duration-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -143,41 +141,26 @@ function HeroHeader() {
             }}
           >
             <ul className="flex flex-col gap-5">
-              {/* {["Home", "Residences", "Gallery", "Location", "Contact"].map(
-                (item) => (
-                  <li key={item}>
-                    <a
-                      href="#"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                      className="text-[#FAFAF8] text-[11px] tracking-[0.2em] uppercase
-                                 hover:text-[#C4663A] transition-colors duration-300"
-                    >
-                      {item}
-                    </a>
-                  </li>
-                ),
-              )} */}
               {NAV_LINKS.map((link) => (
                 <li key={link.label}>
                   <Link
                     href={link.href}
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className={`text-[#FAFAF8] text-[11px] tracking-[0.2em] uppercase
-                                 hover:text-[#C4663A] transition-colors duration-300`}
+                    className="text-ci-white text-[11px] tracking-[0.2em] uppercase
+                                 hover:text-ci-accent transition-colors duration-300"
                   >
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="mt-6 h-px w-16 bg-gradient-to-r from-[#C4663A] to-[#C9A96E]" />
+            <div className="mt-6 h-px w-16 bg-gradient-to-r from-ci-accent to-ci-gold" />
           </nav>
         </div>
       </header>
 
       {/* ═══════════════════════════════════════════
           STICKY SUB-HEADER — light/cream CI style
-          appears when main header scrolls out of view
           ═══════════════════════════════════════════ */}
       <div
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500
@@ -194,9 +177,9 @@ function HeroHeader() {
           <Link href="/">
             <span
               style={{ fontFamily: "'Syne', sans-serif" }}
-              className="text-lg font-extrabold tracking-tight text-[#1A1A1A]"
+              className="text-lg font-extrabold tracking-tight text-ci-charcoal"
             >
-              LOFT<span className="text-[#C4663A]">HAUS</span>
+              LOFT<span className="text-ci-accent">HAUS</span>
             </span>
           </Link>
 
@@ -210,8 +193,8 @@ function HeroHeader() {
                 className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-300
     ${
       activeSection === link.href.replace("#", "")
-        ? "text-[#C4663A]"
-        : "text-[#6B7280] hover:text-[#C4663A]"
+        ? "text-ci-accent"
+        : "text-ci-steel hover:text-ci-accent"
     }`}
               >
                 {link.label}
@@ -227,15 +210,15 @@ function HeroHeader() {
           >
             <span
               className={`block h-[1.5px] transition-all duration-300 origin-center
-                ${isMenuOpen ? "w-5 rotate-45 translate-y-[5.5px] bg-[#C4663A]" : "w-5 bg-[#1A1A1A] group-hover:bg-[#C4663A]"}`}
+                ${isMenuOpen ? "w-5 rotate-45 translate-y-[5.5px] bg-ci-accent" : "w-5 bg-ci-charcoal group-hover:bg-ci-accent"}`}
             />
             <span
               className={`block w-5 h-[1.5px] transition-all duration-300
-                ${isMenuOpen ? "opacity-0 scale-0" : "bg-[#1A1A1A] group-hover:bg-[#C4663A]"}`}
+                ${isMenuOpen ? "opacity-0 scale-0" : "bg-ci-charcoal group-hover:bg-ci-accent"}`}
             />
             <span
               className={`block h-[1.5px] transition-all duration-300 origin-center
-                ${isMenuOpen ? "w-5 -rotate-45 -translate-y-[5.5px] bg-[#C4663A]" : "w-3.5 bg-[#1A1A1A] group-hover:bg-[#C4663A]"}`}
+                ${isMenuOpen ? "w-5 -rotate-45 -translate-y-[5.5px] bg-ci-accent" : "w-3.5 bg-ci-charcoal group-hover:bg-ci-accent"}`}
             />
           </button>
         </div>
@@ -244,7 +227,7 @@ function HeroHeader() {
         <div
           className={`md:hidden overflow-hidden transition-all duration-400 ease-in-out
             ${isMenuOpen && showStickyNav ? "max-h-72 opacity-100" : "max-h-0 opacity-0"}`}
-          style={{ background: "#F5F0EB" }}
+          style={{ background: "var(--color-ci-cream)" }}
         >
           <nav className="px-5 pb-5 pt-2">
             <ul className="flex flex-col gap-4">
@@ -257,8 +240,8 @@ function HeroHeader() {
                     className={`text-[11px] tracking-[0.2em] uppercase transition-colors duration-300
     ${
       activeSection === link.href.replace("#", "")
-        ? "text-[#C4663A]"
-        : "text-[#6B7280] hover:text-[#C4663A]"
+        ? "text-ci-accent"
+        : "text-ci-steel hover:text-ci-accent"
     }`}
                   >
                     {link.label}
@@ -266,7 +249,7 @@ function HeroHeader() {
                 </li>
               ))}
             </ul>
-            <div className="mt-4 h-px w-12 bg-gradient-to-r from-[#C4663A] to-[#C9A96E]" />
+            <div className="mt-4 h-px w-12 bg-gradient-to-r from-ci-accent to-ci-gold" />
           </nav>
         </div>
       </div>
