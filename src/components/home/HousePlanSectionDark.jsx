@@ -10,185 +10,23 @@ import {
   Maximize,
   ChevronDown,
 } from "lucide-react";
-
-/* ───────────────────────────── Data ───────────────────────────── */
-
-const HOUSE_TYPES = [
-  {
-    id: 1,
-    title: "Type Maple",
-    type: "Townhome",
-    gallery: [
-      {
-        id: 1,
-        title: "Facade",
-        src: "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop",
-        alt: "Facade",
-      },
-      {
-        id: 2,
-        title: "1st Floor",
-        src: "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800&h=600&fit=crop",
-        alt: "1st Floor",
-      },
-      {
-        id: 3,
-        title: "2nd Floor",
-        src: "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=800&h=600&fit=crop",
-        alt: "2nd Floor",
-      },
-    ],
-    description: "5.5-meter frontage, rear extension supported by piles",
-    areaSquareMeters: 100,
-    floor: 2,
-    bedrooms: 3,
-    bathrooms: 2,
-    parking: 2,
-  },
-  {
-    id: 2,
-    title: "Type Maple Plus",
-    type: "Townhome",
-    gallery: [
-      {
-        id: 1,
-        title: "Facade",
-        src: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&h=600&fit=crop",
-        alt: "Facade",
-      },
-      {
-        id: 2,
-        title: "1st Floor",
-        src: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800&h=600&fit=crop",
-        alt: "1st Floor",
-      },
-      {
-        id: 3,
-        title: "2nd Floor",
-        src: "https://images.unsplash.com/photo-1617325247661-675ab4b64ae2?w=800&h=600&fit=crop",
-        alt: "2nd Floor",
-      },
-    ],
-    description:
-      "6-meter wide frontage with functional living space and piled rear area",
-    areaSquareMeters: 120,
-    floor: 2,
-    bedrooms: 4,
-    bathrooms: 3,
-    parking: 2,
-  },
-  {
-    id: 3,
-    title: "Type Oak",
-    type: "Semi-Detached House",
-    gallery: [
-      {
-        id: 1,
-        title: "Facade",
-        src: "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=600&fit=crop",
-        alt: "Facade",
-      },
-      {
-        id: 2,
-        title: "1st Floor",
-        src: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
-        alt: "1st Floor",
-      },
-      {
-        id: 3,
-        title: "2nd Floor",
-        src: "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=800&h=600&fit=crop",
-        alt: "2nd Floor",
-      },
-    ],
-    description:
-      "Spacious semi-detached home with private garden and pile foundation",
-    areaSquareMeters: 135,
-    floor: 2,
-    bedrooms: 3,
-    bathrooms: 3,
-    parking: 2,
-  },
-  {
-    id: 4,
-    title: "Type Pine",
-    type: "Detached House",
-    gallery: [
-      {
-        id: 1,
-        title: "Facade",
-        src: "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=800&h=600&fit=crop",
-        alt: "Facade",
-      },
-      {
-        id: 2,
-        title: "1st Floor",
-        src: "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
-        alt: "1st Floor",
-      },
-      {
-        id: 3,
-        title: "2nd Floor",
-        src: "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?w=800&h=600&fit=crop",
-        alt: "2nd Floor",
-      },
-    ],
-    description:
-      "Modern detached home with large living area and full pile foundation",
-    areaSquareMeters: 180,
-    floor: 2,
-    bedrooms: 4,
-    bathrooms: 3,
-    parking: 2,
-  },
-  {
-    id: 5,
-    title: "Type Cedar",
-    type: "Townhome",
-    gallery: [
-      {
-        id: 1,
-        title: "Facade",
-        src: "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&h=600&fit=crop",
-        alt: "Facade",
-      },
-      {
-        id: 2,
-        title: "1st Floor",
-        src: "https://images.unsplash.com/photo-1600573472550-8090b5e0745e?w=800&h=600&fit=crop",
-        alt: "1st Floor",
-      },
-      {
-        id: 3,
-        title: "2nd Floor",
-        src: "https://images.unsplash.com/photo-1617104678098-de229db51175?w=800&h=600&fit=crop",
-        alt: "2nd Floor",
-      },
-    ],
-    description: "Compact design with efficient layout and 5-meter frontage",
-    areaSquareMeters: 95,
-    floor: 2,
-    bedrooms: 3,
-    bathrooms: 2,
-    parking: 1,
-  },
-];
+import { HOUSE_TYPES } from "@/lib/data/home/housePlanData";
 
 /* ───────────────────────────── Spec Item ───────────────────────────── */
 
 function SpecItem({ icon, value, label }) {
   return (
     <div className="flex flex-col items-center gap-1">
-      <span className="text-[#B8B0A8]">{icon}</span>
+      <span className="text-ci-concrete">{icon}</span>
       <span
         style={{ fontFamily: "'Syne', sans-serif" }}
-        className="text-[#FAFAF8] text-lg font-bold leading-none"
+        className="text-ci-white text-lg font-bold leading-none"
       >
         {value}
       </span>
       <span
         style={{ fontFamily: "'DM Sans', sans-serif" }}
-        className="text-[#6B7280] text-[10px] tracking-wider uppercase"
+        className="text-ci-steel text-[10px] tracking-wider uppercase"
       >
         {label}
       </span>
@@ -213,8 +51,7 @@ function HousePlanSectionDark() {
 
   return (
     <section
-      className="relative py-16 overflow-hidden"
-      style={{ background: "#0D0D0D" }}
+      className="relative py-16 overflow-hidden bg-ci-warm-black"
       id="residences"
     >
       {/* Grid texture */}
@@ -237,26 +74,26 @@ function HousePlanSectionDark() {
         {/* ─── Header ─── */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A]"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent"
             >
               Residences
             </p>
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
           </div>
 
           <h2
             style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-[#FAFAF8] mb-3"
+            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-ci-white mb-3"
           >
             House Plans
           </h2>
 
           <p
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-[#6B7280] max-w-md mx-auto text-base md:text-lg font-light italic"
+            className="text-ci-steel max-w-md mx-auto text-base md:text-lg font-light italic"
           >
             Explore our thoughtfully designed residences, each crafted for
             modern living.
@@ -281,20 +118,20 @@ function HousePlanSectionDark() {
               <div>
                 <p
                   style={{ fontFamily: "'Syne', sans-serif" }}
-                  className="text-[#FAFAF8] text-sm font-semibold"
+                  className="text-ci-white text-sm font-semibold"
                 >
                   {activeHouse.title}
                 </p>
                 <p
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="text-[10px] tracking-wider uppercase text-[#B8B0A8]"
+                  className="text-[10px] tracking-wider uppercase text-ci-concrete"
                 >
                   {activeHouse.type}
                 </p>
               </div>
               <ChevronDown
                 size={18}
-                className={`text-[#C4663A] transition-transform duration-300
+                className={`text-ci-accent transition-transform duration-300
                   ${isDropdownOpen ? "rotate-180" : ""}`}
               />
             </button>
@@ -327,21 +164,21 @@ function HousePlanSectionDark() {
                         style={{ fontFamily: "'Syne', sans-serif" }}
                         className={`text-sm font-semibold ${
                           activeTypeId === house.id
-                            ? "text-[#C4663A]"
-                            : "text-[#FAFAF8]"
+                            ? "text-ci-accent"
+                            : "text-ci-white"
                         }`}
                       >
                         {house.title}
                       </p>
                       <p
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
-                        className="text-[10px] tracking-wider uppercase text-[#B8B0A8]"
+                        className="text-[10px] tracking-wider uppercase text-ci-concrete"
                       >
                         {house.type} · {house.areaSquareMeters} sq.m.
                       </p>
                     </div>
                     {activeTypeId === house.id && (
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#C4663A]" />
+                      <div className="w-1.5 h-1.5 rounded-full bg-ci-accent" />
                     )}
                   </div>
                 </button>
@@ -375,7 +212,7 @@ function HousePlanSectionDark() {
             >
               <span
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[10px] tracking-[0.15em] uppercase text-[#FAFAF8]"
+                className="text-[10px] tracking-[0.15em] uppercase text-ci-white"
               >
                 {activeHouse.gallery[activeImageIndex].title}
               </span>
@@ -389,9 +226,9 @@ function HousePlanSectionDark() {
             >
               <span
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[11px] text-[#FAFAF8]"
+                className="text-[11px] text-ci-white"
               >
-                {activeImageIndex + 1} <span className="text-[#6B7280]">/</span>{" "}
+                {activeImageIndex + 1} <span className="text-ci-steel">/</span>{" "}
                 {activeHouse.gallery.length}
               </span>
             </div>
@@ -407,12 +244,12 @@ function HousePlanSectionDark() {
                            transition-all duration-300
                   ${
                     activeImageIndex === i
-                      ? "ring-2 ring-[#C4663A] ring-offset-2"
+                      ? "ring-2 ring-ci-accent ring-offset-2"
                       : "opacity-50 hover:opacity-100"
                   }`}
                 style={{
                   aspectRatio: "16 / 10",
-                  ringOffsetColor: "#0D0D0D",
+                  ringOffsetColor: "var(--color-ci-warm-black)",
                 }}
               >
                 <Image
@@ -431,7 +268,7 @@ function HousePlanSectionDark() {
                 >
                   <span
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[8px] tracking-[0.15em] uppercase text-[#FAFAF8]"
+                    className="text-[8px] tracking-[0.15em] uppercase text-ci-white"
                   >
                     {img.title}
                   </span>
@@ -444,19 +281,19 @@ function HousePlanSectionDark() {
           <div className="mb-5">
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.3em] uppercase text-[#C4663A] mb-1"
+              className="text-[10px] tracking-[0.3em] uppercase text-ci-accent mb-1"
             >
               {activeHouse.type}
             </p>
             <h3
               style={{ fontFamily: "'Syne', sans-serif" }}
-              className="text-xl font-bold text-[#FAFAF8] mb-2"
+              className="text-xl font-bold text-ci-white mb-2"
             >
               {activeHouse.title}
             </h3>
             <p
               style={{ fontFamily: "'Cormorant Garamond', serif" }}
-              className="text-[#6B7280] text-sm italic leading-relaxed"
+              className="text-ci-steel text-sm italic leading-relaxed"
             >
               {activeHouse.description}
             </p>
@@ -502,9 +339,9 @@ function HousePlanSectionDark() {
           <a
             href="#contact"
             style={{ fontFamily: "'DM Sans', sans-serif" }}
-            className="block text-center px-5 py-3 bg-[#C4663A] text-[#FAFAF8]
+            className="block text-center px-5 py-3 bg-ci-accent text-ci-white
                        text-[10px] tracking-[0.2em] uppercase rounded-lg
-                       hover:bg-[#B87333] transition-colors duration-300"
+                       hover:bg-ci-copper transition-colors duration-300"
           >
             Request Info
           </a>
@@ -547,18 +384,18 @@ function HousePlanSectionDark() {
                   }}
                 >
                   {activeTypeId === house.id && (
-                    <div className="w-5 h-[2px] bg-[#C4663A] rounded-full mb-2" />
+                    <div className="w-5 h-[2px] bg-ci-accent rounded-full mb-2" />
                   )}
                   <p
                     style={{ fontFamily: "'Syne', sans-serif" }}
                     className={`text-sm font-semibold mb-0.5 transition-colors duration-300
-                      ${activeTypeId === house.id ? "text-[#FAFAF8]" : "text-[#6B7280]"}`}
+                      ${activeTypeId === house.id ? "text-ci-white" : "text-ci-steel"}`}
                   >
                     {house.title}
                   </p>
                   <p
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[10px] tracking-wider uppercase text-[#B8B0A8]"
+                    className="text-[10px] tracking-wider uppercase text-ci-concrete"
                   >
                     {house.type}
                   </p>
@@ -593,7 +430,7 @@ function HousePlanSectionDark() {
                 >
                   <span
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[10px] tracking-[0.15em] uppercase text-[#FAFAF8]"
+                    className="text-[10px] tracking-[0.15em] uppercase text-ci-white"
                   >
                     {activeHouse.gallery[activeImageIndex].title}
                   </span>
@@ -607,10 +444,10 @@ function HousePlanSectionDark() {
                 >
                   <span
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="text-[11px] text-[#FAFAF8]"
+                    className="text-[11px] text-ci-white"
                   >
                     {activeImageIndex + 1}{" "}
-                    <span className="text-[#6B7280]">/</span>{" "}
+                    <span className="text-ci-steel">/</span>{" "}
                     {activeHouse.gallery.length}
                   </span>
                 </div>
@@ -626,12 +463,12 @@ function HousePlanSectionDark() {
                                transition-all duration-300
                       ${
                         activeImageIndex === i
-                          ? "ring-2 ring-[#C4663A] ring-offset-2"
+                          ? "ring-2 ring-ci-accent ring-offset-2"
                           : "opacity-60 hover:opacity-100"
                       }`}
                     style={{
                       aspectRatio: "16 / 10",
-                      ringOffsetColor: "#0D0D0D",
+                      ringOffsetColor: "var(--color-ci-warm-black)",
                     }}
                   >
                     <Image
@@ -650,7 +487,7 @@ function HousePlanSectionDark() {
                     >
                       <span
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
-                        className="text-[9px] tracking-[0.15em] uppercase text-[#FAFAF8]"
+                        className="text-[9px] tracking-[0.15em] uppercase text-ci-white"
                       >
                         {img.title}
                       </span>
@@ -665,19 +502,19 @@ function HousePlanSectionDark() {
               <div className="mb-6">
                 <p
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="text-[10px] tracking-[0.3em] uppercase text-[#C4663A] mb-2"
+                  className="text-[10px] tracking-[0.3em] uppercase text-ci-accent mb-2"
                 >
                   {activeHouse.type}
                 </p>
                 <h3
                   style={{ fontFamily: "'Syne', sans-serif" }}
-                  className="text-xl font-bold text-[#FAFAF8] mb-3"
+                  className="text-xl font-bold text-ci-white mb-3"
                 >
                   {activeHouse.title}
                 </h3>
                 <p
                   style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                  className="text-[#6B7280] text-sm italic leading-relaxed"
+                  className="text-ci-steel text-sm italic leading-relaxed"
                 >
                   {activeHouse.description}
                 </p>
@@ -728,9 +565,9 @@ function HousePlanSectionDark() {
               <a
                 href="#contact"
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="mt-5 block text-center px-5 py-3 bg-[#C4663A] text-[#FAFAF8]
+                className="mt-5 block text-center px-5 py-3 bg-ci-accent text-ci-white
                            text-[10px] tracking-[0.2em] uppercase rounded-lg
-                           hover:bg-[#B87333] transition-colors duration-300"
+                           hover:bg-ci-copper transition-colors duration-300"
               >
                 Request Info
               </a>

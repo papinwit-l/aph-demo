@@ -1,30 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
-import { Phone, Mail, MapPin, Send } from "lucide-react";
-
-/* ───────────────────────────── Contact Info ───────────────────────────── */
-
-const CONTACT_INFO = [
-  {
-    icon: <Phone size={18} strokeWidth={1.5} />,
-    label: "Phone",
-    value: "02-XXX-XXXX",
-    href: "tel:02XXXXXXX",
-  },
-  {
-    icon: <Mail size={18} strokeWidth={1.5} />,
-    label: "Email",
-    value: "info@lofthaus.co.th",
-    href: "mailto:info@lofthaus.co.th",
-  },
-  {
-    icon: <MapPin size={18} strokeWidth={1.5} />,
-    label: "Address",
-    value: "ถ.รังสิต-นครนายก, ต.ประชาธิปัตย์, อ.ธัญบุรี, จ.ปทุมธานี 12130",
-    href: "https://maps.google.com",
-  },
-];
+import { Send } from "lucide-react";
+import { CONTACT_INFO } from "@/lib/data/home/contactData";
 
 /* ───────────────────────────── Component ───────────────────────────── */
 
@@ -53,11 +31,7 @@ function ContactSection() {
   };
 
   return (
-    <section
-      className="relative py-16"
-      style={{ background: "#FAFAF8" }}
-      id="contact"
-    >
+    <section className="relative py-16 bg-ci-white" id="contact">
       {/* Top divider */}
       <div
         className="absolute top-0 left-6 right-6 md:left-10 md:right-10 h-px"
@@ -68,26 +42,26 @@ function ContactSection() {
         {/* ─── Header ─── */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A]"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent"
             >
               Contact
             </p>
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
           </div>
 
           <h2
             style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-[#1A1A1A] mb-3"
+            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-ci-charcoal mb-3"
           >
             Get in Touch
           </h2>
 
           <p
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-[#6B7280] max-w-lg mx-auto text-base md:text-lg font-light italic"
+            className="text-ci-steel max-w-lg mx-auto text-base md:text-lg font-light italic"
           >
             Interested in LOFTHAUS? We'd love to hear from you.
           </p>
@@ -97,7 +71,8 @@ function ContactSection() {
         <div
           className="rounded-2xl px-8 py-10 md:px-12 md:py-12 mb-10 relative overflow-hidden"
           style={{
-            background: "linear-gradient(135deg, #1A1A1A 0%, #3D4F5F 100%)",
+            background:
+              "linear-gradient(135deg, var(--color-ci-charcoal) 0%, var(--color-ci-slate) 100%)",
           }}
         >
           {/* Subtle grid texture */}
@@ -115,13 +90,13 @@ function ContactSection() {
             <div>
               <p
                 style={{ fontFamily: "'Syne', sans-serif" }}
-                className="text-2xl md:text-3xl font-bold text-[#FAFAF8] tracking-tight leading-snug mb-3"
+                className="text-2xl md:text-3xl font-bold text-ci-white tracking-tight leading-snug mb-3"
               >
                 Schedule a Visit
               </p>
               <p
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                className="text-[#B8B0A8] text-base italic font-light leading-relaxed mb-8"
+                className="text-ci-concrete text-base italic font-light leading-relaxed mb-8"
               >
                 Experience LOFTHAUS in person. Our team is ready to show you
                 around and answer all your questions.
@@ -143,7 +118,7 @@ function ContactSection() {
                   >
                     <div
                       className="flex-shrink-0 w-9 h-9 rounded-lg flex items-center justify-center
-                                 text-[#C4663A] group-hover:text-[#FAFAF8]
+                                 text-ci-accent group-hover:text-ci-white
                                  transition-colors duration-300"
                       style={{
                         background: "rgba(196,102,58,0.12)",
@@ -154,13 +129,13 @@ function ContactSection() {
                     <div>
                       <p
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
-                        className="text-[9px] tracking-[0.25em] uppercase text-[#6B7280] mb-0.5"
+                        className="text-[9px] tracking-[0.25em] uppercase text-ci-steel mb-0.5"
                       >
                         {item.label}
                       </p>
                       <p
                         style={{ fontFamily: "'DM Sans', sans-serif" }}
-                        className="text-[#D4C9BC] text-sm group-hover:text-[#FAFAF8]
+                        className="text-ci-sand text-sm group-hover:text-ci-white
                                    transition-colors duration-300"
                       >
                         {item.value}
@@ -173,16 +148,16 @@ function ContactSection() {
 
             {/* Right: Quote + accent */}
             <div className="hidden md:flex flex-col items-end justify-end text-right">
-              <div className="w-16 h-px bg-gradient-to-l from-[#C4663A] to-[#C9A96E] mb-5" />
+              <div className="w-16 h-px bg-gradient-to-l from-ci-accent to-ci-gold mb-5" />
               <p
                 style={{ fontFamily: "'Cormorant Garamond', serif" }}
-                className="text-[#6B7280] text-lg italic leading-relaxed mb-2"
+                className="text-ci-steel text-lg italic leading-relaxed mb-2"
               >
                 "Form follows lifestyle."
               </p>
               <p
                 style={{ fontFamily: "'DM Sans', sans-serif" }}
-                className="text-[10px] tracking-[0.25em] uppercase text-[#B8B0A8]"
+                className="text-[10px] tracking-[0.25em] uppercase text-ci-concrete"
               >
                 LOFTHAUS Design Philosophy
               </p>
@@ -192,8 +167,8 @@ function ContactSection() {
                   style={{ fontFamily: "'Syne', sans-serif" }}
                   className="text-4xl font-extrabold tracking-tight"
                 >
-                  <span className="text-[#FAFAF8]/20">LOFT</span>
-                  <span className="text-[#C4663A]/30">HAUS</span>
+                  <span className="text-ci-white/20">LOFT</span>
+                  <span className="text-ci-accent/30">HAUS</span>
                 </span>
               </div>
             </div>
@@ -202,22 +177,21 @@ function ContactSection() {
 
         {/* ─── Contact Form ─── */}
         <div
-          className="rounded-2xl px-6 py-8 md:px-10 md:py-10"
+          className="rounded-2xl px-6 py-8 md:px-10 md:py-10 bg-ci-cream"
           style={{
-            background: "#F5F0EB",
             border: "1px solid rgba(0,0,0,0.06)",
           }}
         >
           <div className="max-w-2xl mx-auto">
             <p
               style={{ fontFamily: "'Syne', sans-serif" }}
-              className="text-lg font-bold text-[#1A1A1A] mb-1"
+              className="text-lg font-bold text-ci-charcoal mb-1"
             >
               Send us a message
             </p>
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[#6B7280] text-sm mb-8"
+              className="text-ci-steel text-sm mb-8"
             >
               Fill in the form below and our team will get back to you shortly.
             </p>
@@ -228,7 +202,7 @@ function ContactSection() {
                 <label
                   htmlFor="name"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="block text-[10px] tracking-[0.2em] uppercase text-[#6B7280] mb-2"
+                  className="block text-[10px] tracking-[0.2em] uppercase text-ci-steel mb-2"
                 >
                   Full Name
                 </label>
@@ -242,15 +216,14 @@ function ContactSection() {
                   placeholder="Your full name"
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    background: "#FAFAF8",
                     border: "1px solid rgba(0,0,0,0.08)",
                   }}
-                  className="w-full px-4 py-3 rounded-lg text-sm text-[#1A1A1A]
-                             placeholder-[#B8B0A8] outline-none
+                  className="w-full px-4 py-3 rounded-lg text-sm text-ci-charcoal bg-ci-white
+                             placeholder-ci-concrete outline-none
                              transition-all duration-300
-                             focus:ring-2 focus:ring-[#C4663A]/20"
+                             focus:ring-2 focus:ring-ci-accent/20"
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#C4663A";
+                    e.target.style.borderColor = "var(--color-ci-accent)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "rgba(0,0,0,0.08)";
@@ -264,7 +237,7 @@ function ContactSection() {
                   <label
                     htmlFor="email"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="block text-[10px] tracking-[0.2em] uppercase text-[#6B7280] mb-2"
+                    className="block text-[10px] tracking-[0.2em] uppercase text-ci-steel mb-2"
                   >
                     Email
                   </label>
@@ -278,14 +251,13 @@ function ContactSection() {
                     placeholder="you@email.com"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      background: "#FAFAF8",
                       border: "1px solid rgba(0,0,0,0.08)",
                     }}
-                    className="w-full px-4 py-3 rounded-lg text-sm text-[#1A1A1A]
-                               placeholder-[#B8B0A8] outline-none transition-all duration-300
-                               focus:ring-2 focus:ring-[#C4663A]/20"
+                    className="w-full px-4 py-3 rounded-lg text-sm text-ci-charcoal bg-ci-white
+                               placeholder-ci-concrete outline-none transition-all duration-300
+                               focus:ring-2 focus:ring-ci-accent/20"
                     onFocus={(e) => {
-                      e.target.style.borderColor = "#C4663A";
+                      e.target.style.borderColor = "var(--color-ci-accent)";
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = "rgba(0,0,0,0.08)";
@@ -296,7 +268,7 @@ function ContactSection() {
                   <label
                     htmlFor="phone"
                     style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    className="block text-[10px] tracking-[0.2em] uppercase text-[#6B7280] mb-2"
+                    className="block text-[10px] tracking-[0.2em] uppercase text-ci-steel mb-2"
                   >
                     Phone
                   </label>
@@ -309,14 +281,13 @@ function ContactSection() {
                     placeholder="0XX-XXX-XXXX"
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
-                      background: "#FAFAF8",
                       border: "1px solid rgba(0,0,0,0.08)",
                     }}
-                    className="w-full px-4 py-3 rounded-lg text-sm text-[#1A1A1A]
-                               placeholder-[#B8B0A8] outline-none transition-all duration-300
-                               focus:ring-2 focus:ring-[#C4663A]/20"
+                    className="w-full px-4 py-3 rounded-lg text-sm text-ci-charcoal bg-ci-white
+                               placeholder-ci-concrete outline-none transition-all duration-300
+                               focus:ring-2 focus:ring-ci-accent/20"
                     onFocus={(e) => {
-                      e.target.style.borderColor = "#C4663A";
+                      e.target.style.borderColor = "var(--color-ci-accent)";
                     }}
                     onBlur={(e) => {
                       e.target.style.borderColor = "rgba(0,0,0,0.08)";
@@ -330,7 +301,7 @@ function ContactSection() {
                 <label
                   htmlFor="message"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  className="block text-[10px] tracking-[0.2em] uppercase text-[#6B7280] mb-2"
+                  className="block text-[10px] tracking-[0.2em] uppercase text-ci-steel mb-2"
                 >
                   Message
                 </label>
@@ -344,15 +315,14 @@ function ContactSection() {
                   placeholder="Tell us what you're looking for..."
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
-                    background: "#FAFAF8",
                     border: "1px solid rgba(0,0,0,0.08)",
                   }}
-                  className="w-full px-4 py-3 rounded-lg text-sm text-[#1A1A1A]
-                             placeholder-[#B8B0A8] outline-none resize-none
+                  className="w-full px-4 py-3 rounded-lg text-sm text-ci-charcoal bg-ci-white
+                             placeholder-ci-concrete outline-none resize-none
                              transition-all duration-300
-                             focus:ring-2 focus:ring-[#C4663A]/20"
+                             focus:ring-2 focus:ring-ci-accent/20"
                   onFocus={(e) => {
-                    e.target.style.borderColor = "#C4663A";
+                    e.target.style.borderColor = "var(--color-ci-accent)";
                   }}
                   onBlur={(e) => {
                     e.target.style.borderColor = "rgba(0,0,0,0.08)";
@@ -370,8 +340,8 @@ function ContactSection() {
                            transition-all duration-300 cursor-pointer
                   ${
                     submitted
-                      ? "bg-[#5C6B52] text-[#FAFAF8]"
-                      : "bg-[#C4663A] text-[#FAFAF8] hover:bg-[#B87333]"
+                      ? "bg-ci-moss text-ci-white"
+                      : "bg-ci-accent text-ci-white hover:bg-ci-copper"
                   }
                   ${isSubmitting ? "opacity-70 cursor-wait" : ""}`}
               >

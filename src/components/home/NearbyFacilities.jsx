@@ -1,13 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import {
-  TrainFront,
-  ShoppingBag,
-  Hospital,
-  GraduationCap,
-  TrainIcon,
-} from "lucide-react";
+import { ShoppingBag, Hospital, GraduationCap, TrainIcon } from "lucide-react";
 
 /* ───────────────────────────── Data ───────────────────────────── */
 

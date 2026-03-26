@@ -1,9 +1,7 @@
 "use client";
 
+import { GOOGLE_MAPS_EMBED_URL } from "@/lib/data/home/locationData";
 import React, { useState } from "react";
-
-const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4592.378174229905!2d100.63236257573415!3d13.987692691787103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x311d7f7d696d622f%3A0xaccfcbfba4adc095!2zUGxlbm8gfCDguJ7guKXguLXguYLguJnguYgg4Lif4Li04Lin4LmA4LiI4Lit4Lij4LmMLeC4o-C4seC4h-C4quC4tOC4lQ!5e1!3m2!1sen!2sth!4v1774340454416!5m2!1sen!2sth";
 
 function MapSection() {
   const [isSatellite, setIsSatellite] = useState(false);
@@ -13,11 +11,7 @@ function MapSection() {
     : GOOGLE_MAPS_EMBED_URL;
 
   return (
-    <section
-      //   style={{ background: "#FAFAF8" }}
-      className="relative py-16 bg-white"
-      id="location"
-    >
+    <section className="relative py-16 bg-ci-white" id="location">
       {/* Top divider */}
       <div
         className="absolute top-0 left-6 right-6 md:left-10 md:right-10 h-px"
@@ -28,26 +22,26 @@ function MapSection() {
         {/* ─── Header ─── */}
         <div className="text-center mb-10">
           <div className="flex items-center justify-center gap-4 mb-4">
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
             <p
               style={{ fontFamily: "'DM Sans', sans-serif" }}
-              className="text-[10px] tracking-[0.35em] uppercase text-[#C4663A]"
+              className="text-[10px] tracking-[0.35em] uppercase text-ci-accent"
             >
               Location
             </p>
-            <span className="block w-8 h-px bg-[#C4663A]" />
+            <span className="block w-8 h-px bg-ci-accent" />
           </div>
 
           <h2
             style={{ fontFamily: "'Syne', sans-serif" }}
-            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-[#1A1A1A] mb-3"
+            className="text-3xl md:text-4xl font-bold tracking-tight leading-snug text-ci-charcoal mb-3"
           >
             Find Us
           </h2>
 
           <p
             style={{ fontFamily: "'Cormorant Garamond', serif" }}
-            className="text-[#6B7280] max-w-lg mx-auto text-base md:text-lg font-light italic"
+            className="text-ci-steel max-w-lg mx-auto text-base md:text-lg font-light italic"
           >
             Perfectly situated for urban convenience with easy access to
             transport, shopping, and lifestyle destinations.
@@ -90,8 +84,8 @@ function MapSection() {
               className={`px-4 py-2 text-[10px] tracking-[0.15em] uppercase cursor-pointer transition-all duration-300
                 ${
                   !isSatellite
-                    ? "bg-[#C4663A] text-[#FAFAF8]"
-                    : "text-[#B8B0A8] hover:text-[#FAFAF8]"
+                    ? "bg-ci-accent text-ci-white"
+                    : "text-ci-concrete hover:text-ci-white"
                 }`}
             >
               Map
@@ -102,8 +96,8 @@ function MapSection() {
               className={`px-4 py-2 text-[10px] tracking-[0.15em] uppercase cursor-pointer transition-all duration-300
                 ${
                   isSatellite
-                    ? "bg-[#C4663A] text-[#FAFAF8]"
-                    : "text-[#B8B0A8] hover:text-[#FAFAF8]"
+                    ? "bg-ci-accent text-ci-white"
+                    : "text-ci-concrete hover:text-ci-white"
                 }`}
             >
               Satellite
