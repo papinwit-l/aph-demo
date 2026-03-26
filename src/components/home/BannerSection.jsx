@@ -87,8 +87,8 @@ function BannerSection() {
         aria-label="Previous slide"
         className="absolute left-5 top-1/2 -translate-y-1/2 z-10
                    flex items-center justify-center w-10 h-10 rounded-full
-                   border border-[#FAFAF8]/20 text-[#FAFAF8]
-                   hover:border-[#C4663A] hover:text-[#C4663A]
+                   border border-ci-white/20 text-ci-white
+                   hover:border-ci-accent hover:text-ci-accent
                    transition-colors duration-300 cursor-pointer"
         style={{
           backdropFilter: "blur(4px)",
@@ -116,8 +116,8 @@ function BannerSection() {
         aria-label="Next slide"
         className="absolute right-5 top-1/2 -translate-y-1/2 z-10
                    flex items-center justify-center w-10 h-10 rounded-full
-                   border border-[#FAFAF8]/20 text-[#FAFAF8]
-                   hover:border-[#C4663A] hover:text-[#C4663A]
+                   border border-ci-white/20 text-ci-white
+                   hover:border-ci-accent hover:text-ci-accent
                    transition-colors duration-300 cursor-pointer"
         style={{
           backdropFilter: "blur(4px)",
@@ -149,8 +149,8 @@ function BannerSection() {
             className={`h-[3px] rounded-full transition-all duration-500 cursor-pointer
               ${
                 index === currentIndex
-                  ? "w-8 bg-[#C4663A]"
-                  : "w-3 bg-[#FAFAF8]/30 hover:bg-[#FAFAF8]/60"
+                  ? "w-8 bg-ci-accent"
+                  : "w-3 bg-ci-white/30 hover:bg-ci-white/60"
               }`}
           />
         ))}

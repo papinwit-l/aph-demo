@@ -1,0 +1,19 @@
+@theme {
+  /* ── Core Neutrals ── */
+  --color-ci-warm-black: #0d0d0d;
+  --color-ci-charcoal: #1a1a1a;
+  --color-ci-concrete: #b8b0a8;
+  --color-ci-sand: #d4c9bc;
+  --color-ci-cream: #f5f0eb;
+  --color-ci-white: #fafaf8;
+
+  /* ── Accents ── */
+  --color-ci-accent: #c4663a;
+  --color-ci-copper: #b87333;
+  --color-ci-gold: #c9a96e;
+
+  /* ── Supplementary ── */
+  --color-ci-steel: #6b7280;
+  --color-ci-moss: #5c6b52;
+  --color-ci-slate: #3d4f5f;
+}
